@@ -1,0 +1,113 @@
+/* css/style.css */
+body {
+    background-color: #f8f9fc;
+}
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    transition: margin .25s ease-out;
+    width: 15rem;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 1rem 1.25rem;
+    font-size: 1.25rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+    body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.table th {
+    background-color: #f1f3f5;
+}
+
+/* Salesforce-style Pipeline Path */
+.sales-path {
+    display: flex;
+    margin: 1rem 0 2rem;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+.sales-path-step {
+    flex: 1;
+    text-align: center;
+    padding: 10px 15px;
+    position: relative;
+    background: #f1f5f9;
+    color: #64748b;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.sales-path-step::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -20px;
+    width: 0;
+    height: 0;
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+    border-left: 20px solid #f1f5f9;
+    z-index: 2;
+}
+.sales-path-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -22px;
+    width: 0;
+    height: 0;
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+    border-left: 22px solid #fff;
+    z-index: 1;
+}
+.sales-path-step:last-child::after, .sales-path-step:last-child::before {
+    display: none;
+}
+.sales-path-step.completed {
+    background: #10b981;
+    color: white;
+}
+.sales-path-step.completed::after { border-left-color: #10b981; }
+.sales-path-step.active {
+    background: #0ea5e9;
+    color: white;
+}
+.sales-path-step.active::after { border-left-color: #0ea5e9; }
+.sales-path-step.lost {
+    background: #ef4444;
+    color: white;
+}
+.sales-path-step.lost::after { border-left-color: #ef4444; }
